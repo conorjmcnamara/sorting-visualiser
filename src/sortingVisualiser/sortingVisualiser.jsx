@@ -46,7 +46,16 @@ export default class SortingVisualiser extends React.Component {
             <div className="array-container"> {
                 array.map((value, idx) => (
                     <div className='array-bar' key={idx} style={{height: `${value}px`}}></div>
-                ))}       
+                ))}
+
+                <p className = "caption">Choose an algorithm:</p>
+                <div className="buttonMenu">
+                    <button className="resetButton" onClick={() => this.resetArray()}>Reset Array</button>
+                    <button className="sortButton">Quick Sort</button>
+                    <button className="sortButton">Merge Sort</button>
+                    <button className="sortButton">Heap Sort</button>
+                    <button className="sortButton">Insertion Sort</button>
+                </div>
             </div>
         );
     }
