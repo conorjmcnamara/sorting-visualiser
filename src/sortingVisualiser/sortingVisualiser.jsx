@@ -1,5 +1,6 @@
 import React from 'react';
 import './sortingVisualiser.css';
+import {quickSortComplexity, mergeSortComplexity, heapSortComplexity, insertionSortComplexity} from '../complexityTable/complexityTable.jsx';
 
 export default class SortingVisualiser extends React.Component {
     constructor(props) {
@@ -51,10 +52,10 @@ export default class SortingVisualiser extends React.Component {
                 <p className = "caption">Choose an algorithm:</p>
                 <div className="buttonMenu">
                     <button className="resetButton" onClick={() => this.resetArray()}>Reset Array</button>
-                    <button className="sortButton">Quick Sort</button>
-                    <button className="sortButton">Merge Sort</button>
-                    <button className="sortButton">Heap Sort</button>
-                    <button className="sortButton">Insertion Sort</button>
+                    <button className="sortButton" onClick={() => quickSortComplexity()}>Quick Sort</button>
+                    <button className="sortButton" onClick={() => mergeSortComplexity()}>Merge Sort</button>
+                    <button className="sortButton" onClick={() => heapSortComplexity()}>Heap Sort</button>
+                    <button className="sortButton" onClick={() => insertionSortComplexity()}>Insertion Sort</button>
                 </div>
             </div>
         );

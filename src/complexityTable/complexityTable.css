@@ -1,0 +1,72 @@
+.complexityTable {
+    background-color: #06b07d;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-bottom: 4.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    visibility: hidden;
+    border-radius: 13px;
+    border: 5px solid #06b07d;
+}
+
+.complexityTable caption {
+    color: #2d2d2d;
+    font-size: 1.04em;
+    letter-spacing: 0.4px;
+    margin-bottom: 1em;
+}
+
+.complexityTable th {
+    color: #2d2d2d;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 0.55em;
+}
+
+.complexityTable td {
+    color: white;
+    font-size: 0.87em;
+    text-align: center;
+    padding: 0.55em;
+    padding-top: 0.06em;
+}
+
+@media screen and (max-width: 750px) {
+    .complexityTable {
+        width: 90%;
+    }
+} 
+
+@media screen and (max-width: 600px) {
+    .complexityTable {
+        width: 90%;
+        border: 0;
+    }
+
+    .complexityTable tr {
+        display: block;
+    }
+
+    .complexityTable th {
+        display: none;
+    }
+
+    .complexityTable td {
+        display: block;
+        font-size: 0.8em;
+        text-align: right;
+        padding: 0.8em;
+        border-bottom: 1px solid white;
+    }
+
+    .complexityTable td::before {
+        color: #2d2d2d;
+        font-weight: bold;
+        float: left;
+        content: attr(data-label);
+    }
+
+    .complexityTable td:last-child {
+        border-bottom: 0;
+    }
+}
