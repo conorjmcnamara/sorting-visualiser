@@ -70,3 +70,28 @@
         border-bottom: 0;
     }
 }
+
+/* adjust table location to handle button collapses */ 
+@media screen and (max-width: 427.5px) {
+    .complexityTable caption {
+        margin-top: 8vh;
+    }
+}
+
+@media screen and (max-width: 421.9px) {
+    .complexityTable caption {
+        margin-top: 6vh;
+    }
+}
+
+@media screen and (max-width: 319.5px) {
+    .complexityTable caption {
+        margin-top: 13vh;
+    }
+}
+
+@media screen and (max-width: 310.5px) {
+    .complexityTable caption {
+        margin-top: 22vh;
+    }
+}

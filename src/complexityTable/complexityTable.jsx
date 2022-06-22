@@ -1,6 +1,5 @@
 import React from 'react';
 import './complexityTable.css';
-import '../sortingVisualiser/sortingVisualiser.jsx';
 
 export default class ComplexityTable extends React.Component {
     render() {
