@@ -1,4 +1,4 @@
-.array-container {
+.arrayContainer {
     position: absolute;
     bottom: 22.5vh;
     left: 50px;
@@ -7,7 +7,7 @@
     padding: 0;
 }
 
-.array-bar {
+.arrayBar {
     background-color: black;
     width: 2px;
     display: inline-block;
@@ -55,27 +55,27 @@
     transform: scale(1.08);
 }
 
-/* adjust array location depending on screen size */
+/* adjust the array's location depending on screen size */
 @media screen and (max-width: 427.5px) {
-    .array-container {
+    .arrayContainer {
         bottom: 13.5vh;
     }
 }
 
 @media screen and (max-width: 422px) {
-    .array-container {
+    .arrayContainer {
         bottom: 9vh;
     }
 }
 
 @media screen and (max-width: 319.5px) {
-    .array-container {
+    .arrayContainer {
         bottom: 1vh;
     }
 }
 
 @media screen and (max-width: 310.5px) {
-    .array-container {
+    .arrayContainer {
         bottom: -7vh;
     }
 }

@@ -71,7 +71,7 @@
     }
 }
 
-/* adjust table location to handle button collapses */ 
+/* adjust the table's location to handle button collapses */ 
 @media screen and (max-width: 427.5px) {
     .complexityTable caption {
         margin-top: 8vh;
