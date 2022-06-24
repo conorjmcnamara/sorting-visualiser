@@ -8,7 +8,9 @@ export default class SortingVisualiser extends React.Component {
         super(props);
         this.state = {
             randomArray: [],
-            isSorting: false
+            isSorting: false,
+            isSorted: false,
+            waitingReset: false
         }
     }
 
@@ -40,11 +42,13 @@ export default class SortingVisualiser extends React.Component {
         }
 
         this.setState(() => {
-            return {randomArray: array};
+            return {randomArray: array, isSorted: false, waitingReset: false};
         })
     }
 
     insertionSort() {
+        if(this.state.isSorted) return;
+
         this.setState(() => {
             return {isSorting: true};
         });
@@ -65,7 +69,7 @@ export default class SortingVisualiser extends React.Component {
 
             // animate colour changes
             if(isColourChange === true) {
-                const sortedBars = sortedArray[i][0] // take the array's numerical element
+                const sortedBars = sortedArray[i][0]; // take the array's numerical element
                 
                 setTimeout(() => {
                     for(let j = 0; j < sortedBars.length; j++) {
@@ -94,7 +98,7 @@ export default class SortingVisualiser extends React.Component {
             if(i === sortedArray.length - 1) {
                 setTimeout(() => {
                     this.setState(() => {
-                        return {isSorting: false};
+                        return {isSorting: false, isSorted: true, waitingReset: true};
                     })
                 }, k++ * delay);
             }
@@ -111,11 +115,12 @@ export default class SortingVisualiser extends React.Component {
 
                 <p className="caption">Choose an algorithm:</p>
                 <div className="buttonMenu">
-                    <button className="resetButton" onClick={() => this.resetArray()}>Reset Array</button>
-                    <button className="sortButton" onClick={() => quickSortComplexity()}>Quick Sort</button>
-                    <button className="sortButton" onClick={() => mergeSortComplexity()}>Merge Sort</button>
-                    <button className="sortButton" onClick={() => heapSortComplexity()}>Heap Sort</button>
-                    <button className="sortButton" onClick={() => {this.insertionSort(); insertionSortComplexity()}}>Insertion Sort</button>
+                    <button className="resetButton" onClick={() => this.resetArray()} disabled={this.state.isSorting}>Reset Array</button>
+                    <button className="sortButton" onClick={() => quickSortComplexity()} disabled={this.state.isSorting || this.state.waitingReset}>Quick Sort</button>
+                    <button className="sortButton" onClick={() => mergeSortComplexity()} disabled={this.state.isSorting || this.state.waitingReset}>Merge Sort</button>
+                    <button className="sortButton" onClick={() => heapSortComplexity()} disabled={this.state.isSorting || this.state.waitingReset}>Heap Sort</button>
+                    <button className="sortButton" onClick={() => {this.insertionSort(); insertionSortComplexity()}} disabled=
+                        {this.state.isSorting || this.state.waitingReset}>Insertion Sort</button>
                 </div>
             </div>
         );
