@@ -1,5 +1,6 @@
 import React from 'react';
 import './sortingVisualiser.css';
+import { quickSortAnimation } from '../sortingAlgorithms/quickSort.js';
 import { mergeSortAnimation } from '../sortingAlgorithms/mergeSort.js';
 import { insertionSortAnimation } from '../sortingAlgorithms/insertionSort.js';
 import { quickSortComplexity, mergeSortComplexity, heapSortComplexity, insertionSortComplexity } from '../complexityTable/complexityTable.jsx';
@@ -47,21 +48,29 @@ export default class SortingVisualiser extends React.Component {
         })
     }
 
-    mergeSort() {
+    quickSort() {
         if (this.state.isSorted) return;
-
         this.setState(() => {
             return {isSorting: true};
         });
 
         // sortedArray is made up of arrays that each contain two sub-arrays (numerical and boolean)
+        const sortedArray = quickSortAnimation(this.state.randomArray);
+        this.animation(sortedArray);
+    }
+
+    mergeSort() {
+        if (this.state.isSorted) return;
+        this.setState(() => {
+            return {isSorting: true};
+        });
+
         const sortedArray = mergeSortAnimation(this.state.randomArray);
         this.animation(sortedArray);
     }
 
     insertionSort() {
         if (this.state.isSorted) return;
-
         this.setState(() => {
             return {isSorting: true};
         });
@@ -129,7 +138,7 @@ export default class SortingVisualiser extends React.Component {
                 <div className="buttonMenu">
                     <button className="resetButton" onClick={() => this.resetArray()} disabled={this.state.isSorting}>Reset Array</button>
                     
-                    <button className="sortButton" onClick={() => quickSortComplexity()} disabled=
+                    <button className="sortButton" onClick={() => {this.quickSort(); quickSortComplexity()}} disabled=
                         {this.state.isSorting || this.state.waitingReset}>Quick Sort</button>
                     
                     <button className="sortButton" onClick={() => {this.mergeSort(); mergeSortComplexity()}} disabled=

@@ -1,7 +1,6 @@
 export function insertionSortAnimation(array) {
     const copyArray = array.slice();
     const arrayToAnimate = [];
-
     if (array.length <= 1) return array;
 
     insertionSort(copyArray, arrayToAnimate);
