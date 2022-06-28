@@ -2,7 +2,6 @@ export function quickSortAnimation(array) {
     const copyArray = array.slice();
     const arrayToAnimate = [];
     if (array.length <= 1) return array;
-
     quickSort(copyArray, 0, array.length - 1, arrayToAnimate);
     return arrayToAnimate;
 }
@@ -48,9 +47,9 @@ function quickSortPartition(array, start, end, arrayToAnimate) {
             break;
         }
     }
+    
     arrayToAnimate.push([[start, array[rightIndex]], false]);
     arrayToAnimate.push([[rightIndex, array[start]], false]);
-
     swap(array, start, rightIndex);
     return rightIndex;
  }

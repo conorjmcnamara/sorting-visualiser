@@ -2,6 +2,7 @@ import React from 'react';
 import './sortingVisualiser.css';
 import { quickSortAnimation } from '../sortingAlgorithms/quickSort.js';
 import { mergeSortAnimation } from '../sortingAlgorithms/mergeSort.js';
+import { heapSortAnimation } from '../sortingAlgorithms/heapSort.js';
 import { insertionSortAnimation } from '../sortingAlgorithms/insertionSort.js';
 import { quickSortComplexity, mergeSortComplexity, heapSortComplexity, insertionSortComplexity } from '../complexityTable/complexityTable.jsx';
 
@@ -69,6 +70,16 @@ export default class SortingVisualiser extends React.Component {
         this.animation(sortedArray);
     }
 
+    heapSort() {
+        if (this.state.isSorted) return;
+        this.setState(() => {
+            return {isSorting: true};
+        });
+
+        const sortedArray = heapSortAnimation(this.state.randomArray);
+        this.animation(sortedArray);
+    }
+
     insertionSort() {
         if (this.state.isSorted) return;
         this.setState(() => {
@@ -130,6 +141,7 @@ export default class SortingVisualiser extends React.Component {
         const array = this.state.randomArray;
         return (
             <div className="arrayContainer"> {
+                // assign the randomly generated integers to the array bar heights
                 array.map((value, idx) => (
                     <div className='arrayBar' key={idx} style={{height: `${value}px`}}></div>
                 ))}
@@ -144,7 +156,7 @@ export default class SortingVisualiser extends React.Component {
                     <button className="sortButton" onClick={() => {this.mergeSort(); mergeSortComplexity()}} disabled=
                         {this.state.isSorting || this.state.waitingReset}>Merge Sort</button>
                     
-                    <button className="sortButton" onClick={() => heapSortComplexity()} disabled=
+                    <button className="sortButton" onClick={() => {this.heapSort(); heapSortComplexity()}} disabled=
                         {this.state.isSorting || this.state.waitingReset}>Heap Sort</button>
                     
                     <button className="sortButton" onClick={() => {this.insertionSort(); insertionSortComplexity()}} disabled=

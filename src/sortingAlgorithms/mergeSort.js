@@ -2,7 +2,6 @@ export function mergeSortAnimation(array) {
     const copyArray = array.slice();
     const arrayToAnimate = [];
     if (array.length <= 1) return array;
-
     mergeSort(copyArray, 0, copyArray.length - 1, arrayToAnimate);
     return arrayToAnimate;
 }
@@ -51,6 +50,7 @@ function merge(array, start, middle, end, arrayToAnimate) {
             arrayToAnimate.push([[currentIndex, rightArray[rightIndex]], false]);
             array[currentIndex] = rightArray[rightIndex++];
         }
+        
         currentIndex++;
     }
 
