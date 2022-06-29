@@ -3,7 +3,7 @@
 An interactive ReactJS web application that visualises sorting algorithms and displays their complexities.
 Quick, merge, heap and insertion sort are implemented with JavaScript.
 
-![Sorting Algorithm Visualiser Gif](assets/sample.gif)
+![Sorting Algorithm Visualiser GIF](assets/sample.gif)
 
 ## Resources
 - [ReactJS](https://reactjs.org/)
